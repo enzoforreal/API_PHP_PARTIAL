@@ -7,31 +7,62 @@ require_once __DIR__ . "/libraries/path.php";
 require_once __DIR__ . "/libraries/method.php";
 require_once __DIR__ . "/libraries/response.php";
 
-if (isPath("articles/:article")) {
+// Users Routes
+if (isPath("users/:user")) {
     if (isGetMethod()) {
-        require_once __DIR__ . "/routes/articles/getById.php";
+        require_once __DIR__ . "/routes/users/getById.php";
         die();
     }
 
     if (isDeleteMethod()) {
-        require_once __DIR__ . "/routes/articles/delete.php";
+        require_once __DIR__ . "/routes/users/delete.php";
         die();
     }
 
     if (isPatchMethod()) {
-        require_once __DIR__ . "/routes/articles/patch.php";
+        require_once __DIR__ . "/routes/users/patch.php";
         die();
     }
 }
 
-if (isPath("articles")) {
+if (isPath("users")) {
     if (isGetMethod()) {
-        require_once __DIR__ . "/routes/articles/get.php";
+        require_once __DIR__ . "/routes/users/get.php";
         die();
     }
 
     if (isPostMethod()) {
-        require_once __DIR__ . "/routes/articles/post.php";
+        require_once __DIR__ . "/routes/users/post.php";
+        die();
+    }
+}
+
+// Tasks Routes
+if (isPath("tasks/:task")) {
+    if (isGetMethod()) {
+        require_once __DIR__ . "/routes/tasks/getById.php";
+        die();
+    }
+
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/tasks/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/tasks/patch.php";
+        die();
+    }
+}
+
+if (isPath("tasks")) {
+    if (isGetMethod()) {
+        require_once __DIR__ . "/routes/tasks/get.php";
+        die();
+    }
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/tasks/post.php";
         die();
     }
 }

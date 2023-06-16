@@ -2,16 +2,16 @@
 
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../libraries/parameters.php";
-require_once __DIR__ . "/../../entities/articles/delete-article.php";
+require_once __DIR__ . "/../../entities/users/delete-user.php";
 
 try {
-    $parameters = getParametersForRoute("/articles/:article");
-    $id = $parameters["article"];
-    deleteArticle($id);
+    $parameters = getParametersForRoute("/users/:user");
+    $id = $parameters["user"];
+    deleteUser($id);
 
     echo jsonResponse(200, [], [
         "success" => true,
-        "message" => "Article deleted"
+        "message" => "User deleted"
     ]);
 } catch (Exception $exception) {
     echo jsonResponse(200, [], [

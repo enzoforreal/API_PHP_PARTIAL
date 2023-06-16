@@ -1,14 +1,14 @@
 <?php
 
 require_once __DIR__ . "/../../libraries/response.php";
-require_once __DIR__ . "/../../entities/articles/get-articles.php";
+require_once __DIR__ . "/../../entities/users/get-users.php";
 
 try {
-    $articles = getArticles();
+    $users = getUsers();
 
     echo jsonResponse(200, ["X-School" => "ESGI"], [
         "success" => true,
-        "articles" => $articles
+        "users" => $users
     ]);
 } catch (Exception $exception) {
     echo jsonResponse(500, [], [
@@ -16,4 +16,3 @@ try {
         "error" => $exception->getMessage()
     ]);
 }
-

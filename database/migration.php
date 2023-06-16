@@ -4,11 +4,19 @@ require_once __DIR__ . "/connection.php";
 
 try {
     $databaseConnection = getDatabaseConnection();
-    $databaseConnection->query("DROP TABLE IF EXISTS articles;");
-    $databaseConnection->query("CREATE TABLE articles (
+    $databaseConnection->query("DROP TABLE IF EXISTS users;");
+    $databaseConnection->query("DROP TABLE IF EXISTS tasks;");
+    
+    $databaseConnection->query("CREATE TABLE users (
                                     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                                    title VARCHAR(50) NOT NULL,
-                                    body TEXT NOT NULL
+                                    email VARCHAR(50) NOT NULL,
+                                    password CHAR(60) NOT NULL,
+                                    token CHAR(60) DEFAULT NULL
+                                );");
+
+    $databaseConnection->query("CREATE TABLE tasks (
+                                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                                    description TEXT NOT NULL
                                 );");
 
     echo "Migration réussie" . PHP_EOL;

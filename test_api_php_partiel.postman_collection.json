@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "13d09ebf-4b9d-4100-ba09-91393314f0a1",
+		"name": "test_api_php_partiel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15967568"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"example@example.com\",\n  \"password\": \"password123\"\n}\n"
+				},
+				"url": "http://localhost:8000/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"example@example.com\",\n  \"password\": \"password123\"\n}\n"
+				},
+				"url": "http://localhost:8000/users/login-user.php"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/tasks/get-tasks.php"
+			},
+			"response": []
+		}
+	]
+}

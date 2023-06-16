@@ -1,6 +1,6 @@
 <?php
 
-function updateArticle(string $id, array $columns): void
+function updateTask(string $id, array $columns): void
 {
     if (count($columns) === 0) {
         return;
@@ -8,7 +8,7 @@ function updateArticle(string $id, array $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["title", "body"];
+    $authorizedColumns = ["description"];
 
     $set = [];
 
@@ -29,7 +29,6 @@ function updateArticle(string $id, array $columns): void
     $set = implode(", ", $set);
 
     $databaseConnection = getDatabaseConnection();
-    $updateArticleQuery = $databaseConnection->prepare("UPDATE articles SET $set WHERE id = :id;");
-    $updateArticleQuery->execute($sanitizedColumns);
+    $updateTaskQuery = $databaseConnection->prepare("UPDATE tasks SET $set WHERE id = :id;");
+    $updateTaskQuery->execute($sanitizedColumns);
 }
-

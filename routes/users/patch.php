@@ -3,18 +3,18 @@
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/parameters.php";
-require_once __DIR__ . "/../../entities/articles/update-article.php";
+require_once __DIR__ . "/../../entities/users/update-user.php";
 
 try {
     $body = getBody();
-    $parameters = getParametersForRoute("/articles/:article");
-    $id = $parameters["article"];
+    $parameters = getParametersForRoute("/users/:user");
+    $id = $parameters["user"];
 
     updateArticle($id, $body);
 
     echo jsonResponse(200, [], [
         "success" => true,
-        "message" => "Article updated"
+        "message" => "User updated"
     ]);
 } catch (Exception $exception) {
     echo jsonResponse(500, [], [
@@ -22,4 +22,3 @@ try {
         "error" => $exception->getMessage()
     ]);
 }
-
